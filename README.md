@@ -16,7 +16,7 @@
 
  [Back-end link](https://github.com/AyoubMs/exercise-tracker-api)
  ## Live Demo
- - [Motorcycle-booking-service-front-end](https://create-exercise.herokuapp.com/)
+ - [Exercise-tracker-service-front-end](https://create-exercise.herokuapp.com/)
 
 
 ## Getting Started
