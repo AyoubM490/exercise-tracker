@@ -62,9 +62,7 @@ export default class CreateExercise extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const {
-      username, description, duration, date,
-    } = this.state;
+    const { username, description, duration, date } = this.state;
 
     const exercise = {
       username,
@@ -78,7 +76,7 @@ export default class CreateExercise extends Component {
     axios
       .post(
         'https://exercise-tracker-api-s.herokuapp.com/exercises/add',
-        exercise,
+        exercise
       )
       .then((res) => console.log(res.data));
 
@@ -86,12 +84,10 @@ export default class CreateExercise extends Component {
   }
 
   render() {
-    const {
-      username, description, duration, date, users,
-    } = this.state;
+    const { username, description, duration, date, users } = this.state;
     return (
-      <div>
-        <h3>Create New Exercise Log</h3>
+      <div data-test="component-create-exercise">
+        <h3 data-test="create-exercise-title">Create New Exercise Log</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group my-3">
             <label>Username: </label>
@@ -100,6 +96,7 @@ export default class CreateExercise extends Component {
               required
               className="form-control"
               value={username}
+              data-test="username-input"
               onChange={this.onChangeUsername}
             >
               {users.map((user) => (
@@ -116,6 +113,7 @@ export default class CreateExercise extends Component {
               required
               className="form-control"
               value={description}
+              data-test="description-input"
               onChange={this.onChangeDescription}
             />
           </div>
@@ -125,18 +123,24 @@ export default class CreateExercise extends Component {
               type="text"
               className="form-control"
               value={duration}
+              data-test="duration-input"
               onChange={this.onChangeDuration}
             />
           </div>
           <div className="form-group my-3">
             <label>Date: </label>
-            <div>
-              <DatePicker selected={date} onChange={this.onChangeDate} />
+            <div data-test="date-input">
+              <DatePicker
+                selected={date}
+                onChange={this.onChangeDate}
+                data-test="date-picker-input"
+              />
             </div>
           </div>
           <div className="form-group my-3">
             <input
               type="submit"
+              data-test="submit-button"
               value="Create Exercise Log"
               className="btn btn-primary"
             />

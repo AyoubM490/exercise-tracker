@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
-import withRouter from '../withRouter';
 import 'react-datepicker/dist/react-datepicker.css';
 
 const EditExercise = () => {
@@ -64,7 +63,7 @@ const EditExercise = () => {
     axios
       .post(
         `https://exercise-tracker-api-s.herokuapp.com/exercises/update/${id}`,
-        exercise,
+        exercise
       )
       .then((res) => console.log(res.data));
 
