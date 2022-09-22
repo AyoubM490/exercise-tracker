@@ -42,8 +42,8 @@ export default class CreateUser extends Component {
   render() {
     const { username } = this.state;
     return (
-      <div>
-        <h3>Create New User</h3>
+      <div data-test="component-create-user">
+        <h3 data-test="create-user-title">Create New User</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group my-3">
             <label>Username: </label>
@@ -52,6 +52,7 @@ export default class CreateUser extends Component {
               required
               className="form-control"
               value={username}
+              data-test="username-input"
               onChange={this.onChangeUsername}
             />
           </div>
@@ -59,6 +60,7 @@ export default class CreateUser extends Component {
             <input
               type="submit"
               value="Create User"
+              data-test="submit-button"
               className="btn btn-primary"
             />
           </div>
