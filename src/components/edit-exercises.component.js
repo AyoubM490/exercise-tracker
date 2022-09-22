@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
-import withRouter from '../withRouter';
 import 'react-datepicker/dist/react-datepicker.css';
 
 const EditExercise = () => {
@@ -72,8 +71,8 @@ const EditExercise = () => {
   };
 
   return (
-    <div>
-      <h3>Edit Exercise Log</h3>
+    <div data-test="component-edit-exercises">
+      <h3 data-test="edit-exercises-title">Edit Exercise Log</h3>
       <form onSubmit={onSubmit}>
         <div className="form-group my-3">
           <label>Username: </label>
@@ -81,6 +80,7 @@ const EditExercise = () => {
             required
             className="form-control"
             value={username}
+            data-test="username-input"
             onChange={onChangeUsername}
           >
             {users.map((user) => (
@@ -97,6 +97,7 @@ const EditExercise = () => {
             required
             className="form-control"
             value={description}
+            data-test="description-input"
             onChange={onChangeDescription}
           />
         </div>
@@ -106,19 +107,25 @@ const EditExercise = () => {
             type="text"
             className="form-control"
             value={duration}
+            data-test="duration-input"
             onChange={onChangeDuration}
           />
         </div>
         <div className="form-group my-3">
           <label>Date: </label>
-          <div>
-            <DatePicker selected={date} onChange={onChangeDate} />
+          <div data-test="date-input">
+            <DatePicker
+              selected={date}
+              onChange={onChangeDate}
+              data-test="date-picker-input"
+            />
           </div>
         </div>
         <div className="form-group my-3">
           <input
             type="submit"
             value="Edit Exercise Log"
+            data-test="submit-button"
             className="btn btn-primary"
           />
         </div>

@@ -2,34 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-
-const Exercise = (props) => {
-  const { exercise, deleteExercise } = props;
-  return (
-    <tr>
-      <td>{exercise.username}</td>
-      <td>{exercise.description}</td>
-      <td>{exercise.duration}</td>
-      <td>{exercise.date.substring(0, 10)}</td>
-      <td>
-        <Link to={`/edit/${exercise._id}`}>edit</Link>
-        {' '}
-        |
-        {' '}
-        <button
-          type="button"
-          className="btn btn-danger"
-          href="#"
-          onClick={() => {
-            deleteExercise(exercise._id);
-          }}
-        >
-          delete
-        </button>
-      </td>
-    </tr>
-  );
-};
+import Exercise from './exercise.component';
 
 export default class ExerciseList extends Component {
   constructor(props) {
@@ -65,6 +38,7 @@ export default class ExerciseList extends Component {
     return exercises.map((currentExercise) => (
       <Exercise
         exercise={currentExercise}
+        data-test="component-exercise"
         deleteExercise={this.deleteExercise}
         key={currentExercise._id}
       />
@@ -73,11 +47,11 @@ export default class ExerciseList extends Component {
 
   render() {
     return (
-      <div>
-        <h3>Logged Exercises</h3>
-        <table className="table">
+      <div data-test="component-exercise-list">
+        <h3 data-test="title">Logged Exercises</h3>
+        <table className="table" data-test="table">
           <thead className="thead-light">
-            <tr>
+            <tr data-test="table-row">
               <th>Username</th>
               <th>Description</th>
               <th>Duration</th>
@@ -85,7 +59,7 @@ export default class ExerciseList extends Component {
               <th>Actions</th>
             </tr>
           </thead>
-          <tbody>{this.exerciseList()}</tbody>
+          <tbody data-test="table-body">{this.exerciseList()}</tbody>
         </table>
       </div>
     );
