@@ -11,7 +11,7 @@ import CreateUser from './components/create-user.component';
 function App() {
   return (
     <Router>
-      <div className="container">
+      <div className="container" data-test="appComponent">
         <Navbar />
         <br />
         <Routes>
