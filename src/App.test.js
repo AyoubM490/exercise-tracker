@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import App from './App';
-import findByTestAttr, { testStore } from './Utils';
+import findByTestAttr from './Utils';
 
 const setUp = () => {
   const wrapper = shallow(<App />);

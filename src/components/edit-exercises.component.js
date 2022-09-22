@@ -63,7 +63,7 @@ const EditExercise = () => {
     axios
       .post(
         `https://exercise-tracker-api-s.herokuapp.com/exercises/update/${id}`,
-        exercise
+        exercise,
       )
       .then((res) => console.log(res.data));
 

@@ -62,7 +62,9 @@ export default class CreateExercise extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const { username, description, duration, date } = this.state;
+    const {
+      username, description, duration, date,
+    } = this.state;
 
     const exercise = {
       username,
@@ -76,7 +78,7 @@ export default class CreateExercise extends Component {
     axios
       .post(
         'https://exercise-tracker-api-s.herokuapp.com/exercises/add',
-        exercise
+        exercise,
       )
       .then((res) => console.log(res.data));
 
@@ -84,7 +86,9 @@ export default class CreateExercise extends Component {
   }
 
   render() {
-    const { username, description, duration, date, users } = this.state;
+    const {
+      username, description, duration, date, users,
+    } = this.state;
     return (
       <div data-test="component-create-exercise">
         <h3 data-test="create-exercise-title">Create New Exercise Log</h3>
