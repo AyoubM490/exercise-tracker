@@ -1,6 +1,6 @@
 import React from 'react';
-import findByTestAttr, { checkProps } from '../Utils';
 import { shallow } from 'enzyme';
+import findByTestAttr, { checkProps } from '../Utils';
 import ExerciseList from './exercises-list.component';
 
 const defaultProps = {
